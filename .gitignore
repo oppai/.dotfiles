@@ -1,3 +1,5 @@
 *
 !.gitignore
-!.dotfiles/*
+!README.md
+!.bash_profile
+!.vimrc
