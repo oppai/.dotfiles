@@ -17,7 +17,8 @@ vbell off
 # 端末が落ちたら自動的にデタッチする
 autodetach on
 # 新しいウィンドウを生成するときのコマンド
-shell $SHELL
+# shell $SHELL
+shell -$SHELL
 # スタートアップメッセージを消す
 startup_message off
 # ログファイルのファイル名
