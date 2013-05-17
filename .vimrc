@@ -1,3 +1,7 @@
+" Key-bind
+inoremap <C-c>	<Esc>
+nnoremap <C-c>	i
+
 syntax on
 set number
 set autoindent
