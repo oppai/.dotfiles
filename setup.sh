@@ -7,4 +7,5 @@ do
     ln -s $HOME/.dotfiles/$file $HOME/$file
 done
 
-echo "Complete setup.sh
+echo "Complete setup.sh"
+
