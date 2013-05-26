@@ -15,6 +15,7 @@ filetype plugin indent on
 
 NeoBundleCheck
 
+"Basic setting
 syntax on				"syntax highlight
 set number			"line number
 set autoindent	"auto indent
@@ -26,6 +27,14 @@ set shiftwidth=2	" shift width is 2
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set smarttab
+
+"GUI setting
+if has('gui_macvim')
+    set transparency=3
+    set guifont=Menlo:h12
+    set lines=90 columns=200
+    set guioptions-=T
+endif
 
 "Load template files
 augroup repltemplates
