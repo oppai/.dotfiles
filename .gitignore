@@ -1,4 +1,7 @@
 *
+.DS_Store
+!.vim
+!.vim/*
 !.gitignore
 !README.md
 !setup.sh
