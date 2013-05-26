@@ -24,3 +24,10 @@ set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set smarttab
 
+"Load template files
+augroup repltemplates
+	autocmd!
+	autocmd BufNewFile *.c 0r ~/.dotfiles/.vim/skelton.c
+	autocmd BufNewFile *.php 0r ~/.dotfiles/.vim/skelton.php
+augroup END
+
