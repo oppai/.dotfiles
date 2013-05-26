@@ -7,6 +7,9 @@ if has('vim_starting')
 endif
 
 NeoBundle 'mattn/calendar-vim'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'vim-scripts/ShowMarks'
+NeoBundle 'fuenor/qfixgrep'
 
 filetype plugin indent on
 
