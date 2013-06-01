@@ -36,8 +36,24 @@ set smarttab
 
 let g:neocomplcache_enable_at_startup = 1
 
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+"statusline
+set laststatus=2
+set statusline=%n\:%y
+set statusline+=[%{(&fenc!=''?&fenc:&enc)}]
+set statusline+=[%{Getff()}]
+set statusline+=%m%r\ %F%=[%l/%L]
+
+function! Getff()
+	if &ff == 'unix'
+		return 'LF'
+	elseif &ff == 'dos'
+		return 'CR+LF'
+	elseif &ff == 'mac'
+		return 'CR'
+	else
+		return '?'
+	endif
+endfunction
 
 "GUI setting
 if has('gui_macvim')
