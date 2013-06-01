@@ -36,6 +36,8 @@ set smarttab
 
 let g:neocomplcache_enable_at_startup = 1
 
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 "GUI setting
 if has('gui_macvim')
