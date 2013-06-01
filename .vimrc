@@ -2,7 +2,7 @@
 set nocompatible
 filetype off
 if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim.git
+	set runtimepath+=~/.vim/neobundle.vim.git
 	call neobundle#rc(expand('~/.bundle'))
 endif
 
@@ -15,6 +15,10 @@ NeoBundle 'tpope/vim-markdown'
 filetype plugin indent on
 
 NeoBundleCheck
+
+"Key Remap
+vnoremap > >gv
+vnoremap < <gv
 
 "Basic setting
 syntax on				"syntax highlight
