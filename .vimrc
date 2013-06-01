@@ -10,6 +10,7 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'tpope/vim-markdown'
 
 filetype plugin indent on
 
