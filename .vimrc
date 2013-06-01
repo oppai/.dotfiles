@@ -11,6 +11,7 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
+NeoBundle 'Shougo/neocomplcache'
 
 filetype plugin indent on
 
@@ -32,6 +33,9 @@ set shiftwidth=2	" shift width is 2
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set smarttab
+
+let g:neocomplcache_enable_at_startup = 1
+
 
 "GUI setting
 if has('gui_macvim')
