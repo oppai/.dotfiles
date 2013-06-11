@@ -35,4 +35,8 @@ export PS1="$C_LIGHTGREEN\h$C_DARKGRAY:$C_LIGHTYELLOW\W $C_RED$kodam$C_DEFAULT\$
 alias sublime='open -a /Applications/Sublime\ Text\ 2.app/'
 alias chrome='open -a /Applications/Google\ Chrome.app/'
 alias gvim='open -a /Applications/MacVim.app/'
+alias sc="screen -s bash"
+
+screen -xR
+
 
