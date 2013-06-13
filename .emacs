@@ -1,6 +1,10 @@
 ;;boost
 (setenv "CPLUS_INCLUDE_PATH" "/opt/local/include:$CPLUS_INCLUDE_PATH")
 
+;;行番号
+(require 'linum)
+(global-linum-mode)
+
 ;;言語を日本語にする
 (set-language-environment 'Japanese)
 ;;極力UTF-8とする
