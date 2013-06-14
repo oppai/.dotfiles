@@ -37,6 +37,6 @@ alias chrome='open -a /Applications/Google\ Chrome.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias sc="screen -s bash"
 
-screen -xR
+# screen -xR
 
 
