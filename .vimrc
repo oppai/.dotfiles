@@ -14,7 +14,7 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
 
-NeoBundle 'vim-scripts/hybrid'
+NeoBundle 'vim-scripts/hybrid.vim'
 
 filetype plugin indent on
 
@@ -77,7 +77,7 @@ function! Getff()
 endfunction
 
 "GUI setting
-if has('gui_macvim')
+if has('gui_running')
     set transparency=3
     set guifont=Menlo:h12
     set lines=90 columns=200
