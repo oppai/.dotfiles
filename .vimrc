@@ -3,8 +3,9 @@ set nocompatible
 filetype off
 if has('vim_starting')
 	set runtimepath+=~/.vim/neobundle.vim.git
-	call neobundle#rc(expand('~/.bundle'))
 endif
+
+call neobundle#rc(expand('~/.bundle'))
 
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'fuenor/qfixgrep'
