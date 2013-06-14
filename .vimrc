@@ -14,22 +14,42 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
 
+NeoBundle 'vim-scripts/hybrid'
+
 filetype plugin indent on
 
 NeoBundleCheck
 
-"Key Remap
+
+"Basic key Remap
+noremap j gj
+noremap k gk
+noremap gk k
+noremap gj j
+noremap <Down> gj
+noremap <Up> gk
 vnoremap > >gv
 vnoremap < <gv
 
-"Basic setting
-syntax on				"syntax highlight
-set number			"line number
-set autoindent	"auto indent
-set noeol 			"no eol in EOF
 
-set tabstop=2			" tabstop is 2 as space
-set shiftwidth=2	" shift width is 2
+" edit vimrc
+let mapleader = ','
+nnoremap <Leader>ev :tabnew $HOME/.vimrc<CR>
+nnoremap <Leader>rv :source $HOME/.vimrc<CR>
+
+" editting setting
+syntax on
+set autoindent
+set number
+set cursorline
+
+set list
+set listchars=eol:¬,tab:▸\ 
+
+" tab setting
+set tabstop=2
+set shiftwidth=2
+set scrolloff=20
 
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
