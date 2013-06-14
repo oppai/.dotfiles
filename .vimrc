@@ -10,11 +10,14 @@ call neobundle#rc(expand('~/.bundle'))
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'vim-scripts/ShowMarks'
-NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
 
 NeoBundle 'vim-scripts/hybrid.vim'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimproc'
 
 filetype plugin indent on
 
@@ -32,12 +35,12 @@ vnoremap > >gv
 vnoremap < <gv
 
 
-" edit vimrc
+"Edit vimrc
 let mapleader = ','
 nnoremap <Leader>ev :tabnew $HOME/.vimrc<CR>
 nnoremap <Leader>rv :source $HOME/.vimrc<CR>
 
-" editting setting
+"Editting setting
 syntax on
 set autoindent
 set number
@@ -46,7 +49,7 @@ set cursorline
 set list
 set listchars=eol:¬,tab:▸\ 
 
-" tab setting
+"Tab setting
 set tabstop=2
 set shiftwidth=2
 set scrolloff=20
@@ -57,12 +60,15 @@ set smarttab
 
 let g:neocomplcache_enable_at_startup = 1
 
-"statusline
+"Statusline
 set laststatus=2
 set statusline=%n\:%y
 set statusline+=[%{(&fenc!=''?&fenc:&enc)}]
 set statusline+=[%{Getff()}]
 set statusline+=%m%r\ %F%=[%l/%L]
+
+"Color scheme
+colorscheme molokai
 
 function! Getff()
 	if &ff == 'unix'
