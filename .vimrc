@@ -49,6 +49,12 @@ set cursorline
 set list
 set listchars=eol:¬,tab:▸\ 
 
+"insertモードを抜けるとIMEオフ
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap :set iminsert=0
+
 "Tab setting
 set tabstop=2
 set shiftwidth=2
