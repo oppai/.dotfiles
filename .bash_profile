@@ -39,4 +39,5 @@ alias sc="screen -s bash"
 
 # screen -xR
 
+export PATH=/usr/local/bin:$PATH
 
