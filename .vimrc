@@ -18,6 +18,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'thinca/vim-quickrun'
 
 filetype plugin indent on
 
