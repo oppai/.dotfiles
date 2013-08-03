@@ -32,7 +32,7 @@ C_BG_LIGHTGRAY="\[\033[47m\]"
 kodam="kodam"
 export PS1="$C_LIGHTGREEN\h$C_DARKGRAY:$C_LIGHTYELLOW\W $C_RED$kodam$C_DEFAULT\$"
 
-alias sublime='open -a /Applications/Sublime\ Text\ 2.app/'
+alias sublime='open -a /Applications/Sublime\ Text.app/'
 alias chrome='open -a /Applications/Google\ Chrome.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias sc="screen -s bash"
@@ -40,4 +40,11 @@ alias sc="screen -s bash"
 # screen -xR
 
 export PATH=/usr/local/bin:$PATH
+
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$HOME/.plenv/bin:$PATH"
+eval "$(plenv init -)"
+
+export PATH=$PATH:/usr/local/go/bin
 
