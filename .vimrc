@@ -60,20 +60,24 @@ inoremap :set iminsert=0
 "Tab setting
 set tabstop=2
 set shiftwidth=2
+set expandtab
 set scrolloff=20
 
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set smarttab
 
+"For Perl
+au BufNewFile,BufRead *.pl,*.pm  set nowrap tabstop=4 shiftwidth=4 expandtab
+
 let g:neocomplcache_enable_at_startup = 1
 
 "Statusline
-set laststatus=2
-set statusline=%n\:%y
-set statusline+=[%{(&fenc!=''?&fenc:&enc)}]
-set statusline+=[%{Getff()}]
-set statusline+=%m%r\ %F%=[%l/%L]
+"set laststatus=2
+"set statusline=%n\:%y
+"set statusline+=[%{(&fenc!=''?&fenc:&enc)}]
+"set statusline+=[%{Getff()}]
+"set statusline+=%m%r\ %F%=[%l/%L]
 
 "Color scheme
 colorscheme molokai

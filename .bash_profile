@@ -44,7 +44,9 @@ export PATH=/usr/local/bin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init -)"
+if [ -f plenv ]; then
+  eval "$(plenv init -)"
+fi
 
 export PATH=$PATH:/usr/local/go/bin
 
