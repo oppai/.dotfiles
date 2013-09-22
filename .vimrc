@@ -109,6 +109,7 @@ augroup repltemplates
 	autocmd BufNewFile *.php 0r ~/.dotfiles/.vim/skelton.php
 	autocmd BufNewFile *.sh 0r ~/.dotfiles/.vim/skelton.sh
 	autocmd BufNewFile *.cpp 0r ~/.dotfiles/.vim/skelton.cpp
+	autocmd BufNewFile *.pl 0r ~/.dotfiles/.vim/skelton.pl
 augroup END
 
 " commentout.vim
