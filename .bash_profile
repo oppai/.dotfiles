@@ -32,7 +32,13 @@ C_BG_LIGHTGRAY="\[\033[47m\]"
 kodam="kodam"
 export PS1="$C_LIGHTGREEN\h$C_DARKGRAY:$C_LIGHTYELLOW\W $C_RED$kodam$C_DEFAULT\$"
 
-alias sublime='open -a /Applications/Sublime\ Text.app/'
+if [ -d /Applications/Sublime\ Text.app/ ]; then
+  alias sublime='open -a /Applications/Sublime\ Text.app/'
+fi
+if [ -d /Applications/Sublime\ Text\ 2.app/ ]; then
+  alias sublime='open -a /Applications/Sublime\ Text2.app/'
+fi
+
 alias chrome='open -a /Applications/Google\ Chrome.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias sc="screen -s bash"
@@ -49,4 +55,8 @@ if [ -f plenv ]; then
 fi
 
 export PATH=$PATH:/usr/local/go/bin
+
+# git-complete
+source .git-completeion.bash
+
 
