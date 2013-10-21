@@ -2,7 +2,7 @@
 
 DOT_FILES=( .bash_profile .gitconfig .screenrc .vimrc .gvimrc .emacs .git-completion.bash)
 
-:q#install neobundle
+#install neobundle
 if [ ! -d ~/.vim/neobundle.vim.git ]; then
 	git clone https://github.com/Shougo/neobundle.vim ~/.vim/neobundle.vim.git
 fi
