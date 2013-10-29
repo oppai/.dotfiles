@@ -13,3 +13,5 @@
 !.screenrc
 !.emacs
 !.git-completion.bash
+!.tmux.conf
+

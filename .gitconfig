@@ -23,7 +23,7 @@
   l = log --graph
   st = status
   co = checkout
-  cm = commit -m
+  cm = commit
   br = branch
   diff = diff --word-diff
 

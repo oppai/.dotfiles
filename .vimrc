@@ -48,6 +48,9 @@ set number
 set cursorline
 set nowrap
 
+"Color
+set t_Co=256
+
 set list
 set listchars=eol:¬,tab:▸\ 
 

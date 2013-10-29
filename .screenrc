@@ -1,3 +1,6 @@
+# color
+terminfo xterm* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+#termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
 # 現在の背景色で消去する
 defbce "on"
 # 太字には明るい色を使う(^[はvimでC-v ESCで入力する)
