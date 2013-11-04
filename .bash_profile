@@ -57,6 +57,6 @@ fi
 export PATH=$PATH:/usr/local/go/bin
 
 # git-complete
-source .git-completion.bash
+source $HOME/.git-completion.bash
 
 
