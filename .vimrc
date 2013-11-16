@@ -20,6 +20,8 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-quickrun'
 
+NeoBundle 'evidens/vim-twig'
+
 filetype plugin indent on
 
 NeoBundleCheck
