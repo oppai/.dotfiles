@@ -33,10 +33,10 @@ kodam="kodam"
 export PS1="$C_LIGHTGREEN\h$C_DARKGRAY:$C_LIGHTYELLOW\W $C_RED$kodam$C_DEFAULT\$"
 
 if [ -d /Applications/Sublime\ Text.app/ ]; then
-  alias sublime='open -a /Applications/Sublime\ Text.app/'
+  alias sublime='open -a "/Applications/Sublime Text.app/"';
 fi
 if [ -d /Applications/Sublime\ Text\ 2.app/ ]; then
-  alias sublime='open -a /Applications/Sublime\ Text2.app/'
+  alias sublime='open -a "/Applications/Sublime Text 2.app/"';
 fi
 
 alias chrome='open -a /Applications/Google\ Chrome.app/'
