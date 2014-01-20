@@ -88,33 +88,25 @@ set statusline+=%m%r\ %F%=[%l/%L]
 colorscheme molokai
 
 function! Getff()
-	if &ff == 'unix'
-		return 'LF'
-	elseif &ff == 'dos'
-		return 'CR+LF'
-	elseif &ff == 'mac'
-		return 'CR'
-	else
-		return '?'
-	endif
+  if &ff == 'unix'
+    return 'LF'
+  elseif &ff == 'dos'
+    return 'CR+LF'
+  elseif &ff == 'mac'
+    return 'CR'
+  else
+    return '?'
+  endif
 endfunction
-
-"GUI setting
-if has('gui_running')
-    set transparency=3
-    set guifont=Menlo:h12
-    set lines=90 columns=200
-    set guioptions-=T
-endif
 
 "Load template files
 augroup repltemplates
-	autocmd!
-	autocmd BufNewFile *.c 0r ~/.dotfiles/.vim/skelton.c
-	autocmd BufNewFile *.php 0r ~/.dotfiles/.vim/skelton.php
-	autocmd BufNewFile *.sh 0r ~/.dotfiles/.vim/skelton.sh
-	autocmd BufNewFile *.cpp 0r ~/.dotfiles/.vim/skelton.cpp
-	autocmd BufNewFile *.pl 0r ~/.dotfiles/.vim/skelton.pl
+  autocmd!
+  autocmd BufNewFile *.c 0r ~/.dotfiles/.vim/skelton.c
+  autocmd BufNewFile *.php 0r ~/.dotfiles/.vim/skelton.php
+  autocmd BufNewFile *.sh 0r ~/.dotfiles/.vim/skelton.sh
+  autocmd BufNewFile *.cpp 0r ~/.dotfiles/.vim/skelton.cpp
+  autocmd BufNewFile *.pl 0r ~/.dotfiles/.vim/skelton.pl
 augroup END
 
 " commentout.vim

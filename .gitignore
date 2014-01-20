@@ -10,6 +10,7 @@
 !.bash_profile
 !.gitconfig
 !.vimrc
+!.gvimrc
 !.screenrc
 !.emacs
 !.git-completion.bash
