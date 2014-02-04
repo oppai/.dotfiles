@@ -1,18 +1,2 @@
-*
 .DS_Store
-!.vim
-!.vim/*
-!.vim/plugin/*
-!.gitignore
-!README.md
-!setup.sh
-
-!.bash_profile
-!.gitconfig
-!.vimrc
-!.gvimrc
-!.screenrc
-!.emacs
-!.git-completion.bash
-!.tmux.conf
 
