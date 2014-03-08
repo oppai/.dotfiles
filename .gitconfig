@@ -25,5 +25,5 @@
   co = checkout
   cm = commit
   br = branch
-  diff = diff --word-diff
+  df = diff --word-diff
 
