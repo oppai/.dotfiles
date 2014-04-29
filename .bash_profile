@@ -42,6 +42,11 @@ fi
 alias chrome='open -a /Applications/Google\ Chrome.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias sc="screen -s bash"
+alias t="tmux"
+alias v="vim"
+alias g="git"
+alias gg="git graph"
+alias s="git status --short --branch"
 
 # screen -xR
 

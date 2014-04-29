@@ -26,3 +26,5 @@
   cm = commit
   br = branch
   df = diff --word-diff
+  d = diff
+  a = add
