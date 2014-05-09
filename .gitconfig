@@ -28,3 +28,5 @@
   df = diff --word-diff
   d = diff
   a = add
+  authors = shortlog -sn
+  s = status --short --branch

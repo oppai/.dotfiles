@@ -19,8 +19,10 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundle 'evidens/vim-twig'
+NeoBundle 'tpope/vim-surround'
 
 filetype plugin indent on
 
@@ -130,4 +132,11 @@ vmap ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
 " block comments
 vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
+
+" Vim indent gui
+let g:indent_guides_auto_colors = 1
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
 
