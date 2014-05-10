@@ -46,6 +46,7 @@ alias t="tmux"
 alias v="vim"
 alias g="git"
 alias gg="git graph"
+alias gd="git diff"
 alias s="git status --short --branch"
 
 # screen -xR
