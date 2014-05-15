@@ -12,6 +12,7 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
 
 NeoBundle 'vim-scripts/hybrid.vim'
 NeoBundle 'Lokaltog/vim-powerline'
@@ -134,9 +135,27 @@ vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 " Vim indent gui
-let g:indent_guides_auto_colors = 1
+let g:indent_guides_auto_colors=0
+let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+let g:indent_guides_enable_on_vim_startup=1
 
+NeoBundle 'https://github.com/y-uuki/perl-local-lib-path.vim', {
+            \ 'autoload': {
+            \   'filetypes': ['perl']
+            \ }}
+
+let g:perl_local_lib_path = '$HOME/mixi'
+autocmd FileType perl PerlLocalLibPath
+
+" 保存に合わせてcodereview.pl template-validatorを実行
+if has('autocmd')
+    augroup EditPerl
+    autocmd!
+    autocmd BufWritePost,FileWritePost *.{t,p[lm]} !/usr/local/mixi-devtools/mixi-codereview/bin/codereview.pl <afile>
+    autocmd BufWritePost,FileWritePost *.tmpl !./script/devel/template-validator <afile>
+    augroup END
+endif
 

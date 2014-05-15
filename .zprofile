@@ -32,6 +32,32 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]#"
+PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f@%F{red}%B%m%u%f]#"
 RPROMPT="%1(v|%F{white}%1v%f|)"
 
+# alias
+alias chrome='open -a /Applications/Google\ Chrome.app/'
+alias gvim='open -a /Applications/MacVim.app/'
+alias sc="screen -s bash"
+alias t="tmux"
+alias v="vim"
+alias g="git"
+alias gg="git graph"
+alias s="git status --short --branch"
+
+# セパレータを設定する
+zstyle ':completion:*' list-separator '-->'
+zstyle ':completion:*:manuals' separate-sections true
+
+# 名前で色を付けるようにする
+autoload colors
+colors
+
+export CLICOLOR=1
+export LSCOLORS=DxGxcxdxCxegedabagacada
+
+# ファイル補完候補に色を付ける
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# tmuxinator
+# source ~/.bin/tmuxinator.zsh
