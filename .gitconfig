@@ -30,3 +30,5 @@
   a = add
   authors = shortlog -sn
   s = status --short --branch
+[hub]
+	host = github.lo.mixi.jp

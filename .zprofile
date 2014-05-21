@@ -44,6 +44,7 @@ alias v="vim"
 alias g="git"
 alias gg="git graph"
 alias s="git status --short --branch"
+alias gd="git diff"
 
 # セパレータを設定する
 zstyle ':completion:*' list-separator '-->'
@@ -61,3 +62,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # tmuxinator
 # source ~/.bin/tmuxinator.zsh
+
+# GHE
+export GITHUB_HOST=github.lo.mixi.jp

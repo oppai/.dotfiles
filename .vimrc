@@ -13,6 +13,7 @@ NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 
 NeoBundle 'vim-scripts/hybrid.vim'
 NeoBundle 'Lokaltog/vim-powerline'
@@ -74,6 +75,8 @@ set scrolloff=20
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set smarttab
+
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
 "For Perl
 au BufNewFile,BufRead *.pl,*.pm  set nowrap tabstop=4 shiftwidth=4 expandtab
