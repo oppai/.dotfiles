@@ -32,3 +32,4 @@
   s = status --short --branch
 [hub]
 	host = github.lo.mixi.jp
+	host = github.lo.mixi.jp

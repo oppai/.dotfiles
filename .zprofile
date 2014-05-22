@@ -44,7 +44,11 @@ alias v="vim"
 alias g="git"
 alias gg="git graph"
 alias s="git status --short --branch"
+alias gr="git reset"
 alias gd="git diff"
+alias ga="git add"
+alias co="git checkout"
+alias cm="git commit"
 
 # セパレータを設定する
 zstyle ':completion:*' list-separator '-->'
