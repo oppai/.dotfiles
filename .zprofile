@@ -52,6 +52,7 @@ alias co="git checkout"
 # セパレータを設定する
 zstyle ':completion:*' list-separator '-->'
 zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # 名前で色を付けるようにする
 autoload colors
@@ -62,6 +63,12 @@ export LSCOLORS=DxGxcxdxCxegedabagacada
 
 # ファイル補完候補に色を付ける
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# http://qiita.com/items/13d150c590508d518d26
+autoload -U compinit
+compinit
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # tmuxinator
 # source ~/.bin/tmuxinator.zsh
