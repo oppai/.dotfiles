@@ -46,6 +46,7 @@ alias gg="git graph"
 alias s="git status --short --branch"
 alias gr="git reset"
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias ga="git add"
 alias co="git checkout"
 
