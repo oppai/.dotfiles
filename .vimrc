@@ -19,12 +19,22 @@ NeoBundle 'vim-scripts/hybrid.vim'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'tpope/vim-surround'
+
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+NeoBundle 'scratch.vim'
 
 filetype plugin indent on
 
@@ -154,11 +164,21 @@ let g:perl_local_lib_path = '$HOME/mixi'
 autocmd FileType perl PerlLocalLibPath
 
 " 保存に合わせてcodereview.pl template-validatorを実行
-if has('autocmd')
-    augroup EditPerl
-    autocmd!
-    autocmd BufWritePost,FileWritePost *.{t,p[lm]} !/usr/local/mixi-devtools/mixi-codereview/bin/codereview.pl <afile>
-    autocmd BufWritePost,FileWritePost *.tmpl !./script/devel/template-validator <afile>
-    augroup END
-endif
+augroup EditPerl
+autocmd!
+autocmd BufWritePost,FileWritePost QuickRun mperl
+"autocmd!
+"autocmd BufWritePost,FileWritePost *.{t,p[lm]} !/usr/local/mixi-devtools/mixi-codereview/bin/codereview.pl <afile>
+"autocmd BufWritePost,FileWritePost *.tmpl !./script/devel/template-validator <afile>
+augroup END
+
+" QuickRun
+let g:quickrun_config = {}
+" Vimproc で Quickrun
+let g:quickrun_config['_'] = {
+      \ 'runner': 'vimproc',
+      \       "runner/vimproc/updatetime" : 100
+      \ }
+let g:quickrun_config.mperl = {'command' : 'codereview.pl'}
+let g:quickrun_config.mtmpl = {'command' : './script/devel/template-validator.pl'}
 
