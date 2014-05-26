@@ -182,3 +182,4 @@ let g:quickrun_config['_'] = {
 let g:quickrun_config.mperl = {'command' : 'codereview.pl'}
 let g:quickrun_config.mtmpl = {'command' : './script/devel/template-validator.pl'}
 
+vnoremap <Leader>ps :!./script/devel/package-sorter %<CR>
