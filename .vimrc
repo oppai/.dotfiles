@@ -166,10 +166,8 @@ autocmd FileType perl PerlLocalLibPath
 " 保存に合わせてcodereview.pl template-validatorを実行
 augroup EditPerl
 autocmd!
-autocmd BufWritePost,FileWritePost QuickRun mperl
-"autocmd!
-"autocmd BufWritePost,FileWritePost *.{t,p[lm]} !/usr/local/mixi-devtools/mixi-codereview/bin/codereview.pl <afile>
-"autocmd BufWritePost,FileWritePost *.tmpl !./script/devel/template-validator <afile>
+autocmd BufWritePost,FileWritePost *.{t,p[lm]} QuickRun mperl
+autocmd BufWritePost,FileWritePost *.tmpl Quickrun mtmpl
 augroup END
 
 " QuickRun
