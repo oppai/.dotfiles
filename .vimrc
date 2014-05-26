@@ -15,14 +15,25 @@ NeoBundle 'Shougo/neocomplcache'
 
 NeoBundle 'vim-scripts/hybrid.vim'
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'tomasr/molokai'
 NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'nathanaelkane/vim-indent-guides'
 
-NeoBundle 'evidens/vim-twig'
+NeoBundle 'scratch.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+
+NeoBundle 'tomasr/molokai'
+NeoBundle 'evidens/vim-twig'
 
 filetype plugin indent on
 
@@ -51,6 +62,8 @@ set autoindent
 set number
 set cursorline
 set nowrap
+
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
 "Color
 set t_Co=256
@@ -139,4 +152,11 @@ let g:indent_guides_guide_size = 1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
+" QuickRun
+let g:quickrun_config = {}
+" Vimproc で Quickrun
+let g:quickrun_config['_'] = {
+      \ 'runner': 'vimproc',
+      \       "runner/vimproc/updatetime" : 100
+      \ }
 
