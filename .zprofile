@@ -35,3 +35,7 @@ precmd () {
 PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]#"
 RPROMPT="%1(v|%F{white}%1v%f|)"
 
+# ssh-agent
+eval `/usr/bin/ssh-agent`
+
+alias m='ssh mixi_intra'
