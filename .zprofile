@@ -1,6 +1,9 @@
 # export
 export PATH=/usr/local/bin:$PATH
 
+export CLICOLOR=1
+export LSCOLORS=DxGxcxdxCxegedabagacad
+
 # alias
 alias ls='ls -F'
 alias ll='ls -al'
@@ -21,6 +24,16 @@ setopt hist_ignore_dups   #同じコマンドラインを連続で実行した�
 setopt hist_ignore_space  #スペースで始まるコマンドラインはヒストリに追加しない
 setopt inc_append_history #すぐにヒストリファイルに追記する
 setopt share_history      #zshプロセス間でヒストリを共有する
+
+alias chrome='open -a /Applications/Google\ Chrome.app/'
+alias gvim='open -a /Applications/MacVim.app/'
+alias sc="screen -s bash"
+alias t="tmux"
+alias v="vim"
+alias g="git"
+alias gg="git graph"
+alias s="git status --short --branch"
+
 
 # git
 autoload -Uz vcs_info
@@ -52,3 +65,8 @@ export LSCOLORS=DxGxcxdxCxegedabagacada
 # ssh-agent
 eval `/usr/bin/ssh-agent`
 
+# git-complete
+fpath=(~/.zsh/completion $fpath)
+
+autoload -U compinit
+compinit -u
