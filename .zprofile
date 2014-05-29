@@ -35,7 +35,6 @@ precmd () {
 PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]#"
 RPROMPT="%1(v|%F{white}%1v%f|)"
 
-
 alias chrome='open -a /Applications/Google\ Chrome.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias sc="screen -s bash"
@@ -49,4 +48,7 @@ alias s="git status --short --branch"
 # Color
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacada
+
+# ssh-agent
+eval `/usr/bin/ssh-agent`
 
