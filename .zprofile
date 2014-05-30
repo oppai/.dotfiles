@@ -56,7 +56,16 @@ alias v="vim"
 alias g="git"
 alias gg="git graph"
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias s="git status --short --branch"
+alias ga="git add"
+alias gr="git reset"
+alias co="git checkout"
+
+# セパレータを設定する
+zstyle ':completion:*' list-separator '-->'
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # Color
 export CLICOLOR=1
