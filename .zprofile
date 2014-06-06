@@ -76,3 +76,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # GHE
 export GITHUB_HOST=github.lo.mixi.jp
+
+SOCK="/tmp/ssh-agent-$USER-screen"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
+then
+    ln -sf $SSH_AUTH_SOCK $SOCK
+    export SSH_AUTH_SOCK=$SOCK
+fi
