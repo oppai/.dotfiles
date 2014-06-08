@@ -38,7 +38,6 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle 'scratch.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-fugitive'
 
 NeoBundle 'git://github.lo.mixi.jp/vim/vim-autoload_pages_controller'
 NeoBundle 'git://github.lo.mixi.jp/vim/vim-find_branch_root'
