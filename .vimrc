@@ -150,11 +150,28 @@ vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 " Vim indent gui
+" indent-guides を有効にする
+autocmd VimEnter * :IndentGuidesEnable
+
+" 1インデント目からガイドする
+let g:indent_guides_start_level = 1
+
+" 自動カラーを無効にして手動で設定する
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
+
+" 奇数インデントのガイドカラー
+hi IndentGuidesOdd  ctermbg=red
+
+" 偶数インデントのガイドカラー
+hi IndentGuidesEven ctermbg=black
+
+" ハイライト色の変化の幅 (Terminal では未サポート)
+"let g:indent_guides_color_change_percent = 20
+" ガイドの幅
+"let g:indent_guides_guide_size = 1
+" ガイド幅をインデント幅に合わせる
+"let g:indent_guides_guide_size = &tabstop
+
 
 " QuickRun
 let g:quickrun_config = {}
@@ -226,4 +243,3 @@ nnoremap <silent> <Leader>sc :<C-u>SyntasticCheck<CR>
 " normal モードのとき、<Leader>st でコーディングルールのチェック/非チェックを
 " 切り替え
 nnoremap <silent> <Leader>st :<C-u>SyntasticToggleMode<CR>
-
