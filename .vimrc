@@ -36,6 +36,7 @@ NeoBundle 'evidens/vim-twig'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'alpaca-tc/neorspec.vim', { 'depends' : 'tpope/vim-rails' }
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/vimfiler.vim'
 
 filetype plugin indent on
 
@@ -149,10 +150,11 @@ vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 " Vim indent gui
-let g:indent_guides_auto_colors = 1
-let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
 " QuickRun
 let g:quickrun_config = {}
