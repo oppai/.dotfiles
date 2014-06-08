@@ -160,17 +160,17 @@ let g:indent_guides_start_level = 1
 let g:indent_guides_auto_colors = 0
 
 " 奇数インデントのガイドカラー
-hi IndentGuidesOdd  ctermbg=red
+"hi IndentGuidesOdd  ctermbg=lightgrey
 
 " 偶数インデントのガイドカラー
-hi IndentGuidesEven ctermbg=black
+hi IndentGuidesEven ctermbg=darkgray
 
 " ハイライト色の変化の幅 (Terminal では未サポート)
 "let g:indent_guides_color_change_percent = 20
 " ガイドの幅
 "let g:indent_guides_guide_size = 1
 " ガイド幅をインデント幅に合わせる
-"let g:indent_guides_guide_size = &tabstop
+let g:indent_guides_guide_size = &tabstop
 
 
 " QuickRun
