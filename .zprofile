@@ -71,11 +71,18 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacada
 
+# ファイル補完に色を付ける
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}¬
+
+# http://qiita.com/items/13d150c590508d518d26
+autoload -U compinit
+compinit
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 # ssh-agent
 eval `/usr/bin/ssh-agent`
 
 # git-complete
 fpath=(~/.zsh/completion $fpath)
 
-autoload -U compinit
-compinit -u

@@ -69,7 +69,7 @@ set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
 "Color
 set t_Co=256
-
+set hlsearch
 set list
 set listchars=eol:¬,tab:▸\ 
 
