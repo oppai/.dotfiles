@@ -39,6 +39,8 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'scratch.vim'
 NeoBundle 'scrooloose/syntastic'
 
+NeoBundle 'kuniwak/vim-prove-syntax'
+
 NeoBundle 'git://github.lo.mixi.jp/vim/vim-autoload_pages_controller'
 NeoBundle 'git://github.lo.mixi.jp/vim/vim-find_branch_root'
 NeoBundle 'git://github.lo.mixi.jp/vim/vim-load_test'
@@ -155,9 +157,10 @@ vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 " Vim indent gui
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+let g:indent_guides_auto_colors = 1
+hi IndentGuidesOdd  ctermbg=red
+hi IndentGuidesEven ctermbg=darkgray
+
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_indent_levels =30
 let g:indent_guides_guide_size = 1
@@ -179,6 +182,12 @@ autocmd BufWritePost,FileWritePost *.{t,p[lm]} QuickRun mperl
 autocmd BufWritePost,FileWritePost *.tmpl QuickRun mperl
 augroup END
 
+" mixi-prove 使う場合は：
+augroup my_mixi_prove
+    autocmd!
+    autocmd BufNewFile,BufRead *.t set filetype=perl.mixi-prove
+augroup END
+
 " QuickRun
 let g:quickrun_config = {}
 " Vimproc で Quickrun
@@ -190,11 +199,19 @@ let g:quickrun_config.mperl = {
       \  'command' : 'codereview.pl',
       \  'outputter/buffer/split' : ':botright 8sp',
       \  }
-let g:quickrun_config.mtest = {
-      \  'command' : 'mixi-prove',
-      \  'outputter/buffer/split' : ':botright 15sp',
+let g:quickrun_config['useless-module'] = {
+      \  'command' : 'useless-module',
+      \  'outputter/buffer/split' : ':botright 8sp',
       \  }
-noremap <Leader>rt :QuickRun mtest<CR>
+let g:quickrun_config['mixi-prove'] = {
+      \  'command' : 'mixi-prove',
+      \  'outputter/buffer/filetype': 'prove-output',
+      \  'outputter/buffer/split' : ':botright 15sp',
+      \  'hook/shebang/enable': 0,
+      \  }
+
+noremap <Leader>rt :QuickRun mixi-prove<CR>
+noremap <Leader>rm :QuickRun useless-module<CR>
 
 vnoremap <Leader>ps :!./script/devel/package-sorter %<CR>
 
@@ -253,3 +270,5 @@ noremap <C-j> :call LoadTest('bel vne')<CR>
 "noremap <C-j> :call LoadTest('bel sp')<ENTER>
 "".tを横分割した上側のウィンドウで開く場合
 "noremap <C-j> :call LoadTest('abo sp')<ENTERN>
+
+

@@ -2,7 +2,7 @@
   name = hiroaki.murayama
   email = hiroaki.murayama@mixi.co.jp
 [core]
-  excludesfile = $HOME/.gitignore_global
+  excludesfile = $HOME/.gitignore
   editor = /usr/bin/vim
 [color]
   ui = true
