@@ -98,7 +98,7 @@ set smarttab
 set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
 "For Perl
-au BufNewFile,BufRead *.pl,*.pm  set nowrap tabstop=4 shiftwidth=4 expandtab
+au BufNewFile,BufRead *.t,*.pl,*.pm  set nowrap tabstop=4 shiftwidth=4 expandtab
 
 let g:neocomplcache_enable_at_startup = 1
 

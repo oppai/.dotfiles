@@ -49,6 +49,9 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias ga="git add"
 alias co="git checkout"
+alias gname="git diff --name-only"
+
+alias ts="tig status"
 
 MIXI="~/mixi/"
 alias useless-module="git ls-files -m | grep pm | xargs -n 1 ${MIXI}script/devel/useless-module.pl"
@@ -98,4 +101,4 @@ fixssh() {
 
 fixssh;
 
-
+#alias git='~/mixi-git/bin/mixi-git'
