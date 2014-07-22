@@ -32,7 +32,7 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f@%F{red}%B%m%u%f]#"
+PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f@%F{red}%B%m%u%f]$"
 RPROMPT="%1(v|%F{white}%1v%f|)"
 
 # alias
@@ -50,6 +50,7 @@ alias gdc="git diff --cached"
 alias ga="git add"
 alias co="git checkout"
 alias gname="git diff --name-only"
+alias tigs="tig status"
 
 alias ts="tig status"
 
