@@ -41,9 +41,22 @@ NeoBundle 'scrooloose/syntastic'
 
 NeoBundle 'kuniwak/vim-prove-syntax'
 
+"{{====================================
+"社内vimプラグイン
 NeoBundle 'git://github.lo.mixi.jp/vim/vim-autoload_pages_controller'
 NeoBundle 'git://github.lo.mixi.jp/vim/vim-find_branch_root'
 NeoBundle 'git://github.lo.mixi.jp/vim/vim-load_test'
+
+"gfでジャンプ Ctrl+Oで戻る
+NeoBundle 'https://github.com/y-uuki/perl-local-lib-path.vim', {
+            \ 'autoload': {
+            \   'filetypes': ['perl']
+            \ }}
+
+let g:perl_local_lib_path = '$HOME/mixi'
+autocmd FileType perl PerlLocalLibPath
+
+"}}=====================================
 
 filetype plugin indent on
 
@@ -94,6 +107,7 @@ set scrolloff=20
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set smarttab
+set wildmenu
 
 set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
@@ -166,15 +180,6 @@ let g:indent_guides_indent_levels =30
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
-"gfでジャンプ Ctrl+Oで戻る
-NeoBundle 'https://github.com/y-uuki/perl-local-lib-path.vim', {
-            \ 'autoload': {
-            \   'filetypes': ['perl']
-            \ }}
-
-let g:perl_local_lib_path = '$HOME/mixi'
-autocmd FileType perl PerlLocalLibPath
-
 " 保存に合わせてcodereview.pl template-validatorを実行
 augroup EditPerl
 autocmd!
@@ -209,6 +214,7 @@ let g:quickrun_config['mixi-prove'] = {
       \  'outputter/buffer/split' : ':botright 15sp',
       \  'hook/shebang/enable': 0,
       \  }
+set splitright
 
 noremap <Leader>rt :QuickRun mixi-prove<CR>
 noremap <Leader>rm :QuickRun useless-module<CR>
