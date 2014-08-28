@@ -4,6 +4,10 @@ export PATH=/usr/local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+export GOROOT=`go env GOROOT`
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 # alias
 alias ls='ls -F'
 alias ll='ls -al'

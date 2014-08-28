@@ -5,11 +5,18 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/neobundle.vim.git
 endif
 
+" Go lang
+set rtp+=$GOROOT/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+set completeopt=menu,preview
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
+
 call neobundle#rc(expand('~/.bundle'))
 
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
 
@@ -37,6 +44,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'alpaca-tc/neorspec.vim', { 'depends' : 'tpope/vim-rails' }
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'mattn/sonictemplate-vim'
 
 filetype plugin indent on
 
@@ -94,6 +102,8 @@ set wildmenu
 
 "For Perl
 au BufNewFile,BufRead *.pl,*.pm  set nowrap tabstop=4 shiftwidth=4 expandtab
+"For Go
+au BufNewFile,BufRead *.go  set nowrap tabstop=2 shiftwidth=2 noexpandtab
 
 let g:neocomplcache_enable_at_startup = 1
 
@@ -156,7 +166,7 @@ vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 autocmd VimEnter * :IndentGuidesEnable
 
 " 1インデント目からガイドする
-let g:indent_guides_start_level = 1
+let g:indent_guides_start_level = &tabstop
 
 " 自動カラーを無効にして手動で設定する
 let g:indent_guides_auto_colors = 0
@@ -165,15 +175,18 @@ let g:indent_guides_auto_colors = 0
 "hi IndentGuidesOdd  ctermbg=lightgrey
 
 " 偶数インデントのガイドカラー
-hi IndentGuidesEven ctermbg=darkgray
+hi IndentGuidesOdd  ctermbg=darkgray
+
+" 偶数インデントのガイドカラー
+"hi IndentGuidesEven ctermbg=black
 
 " ハイライト色の変化の幅 (Terminal では未サポート)
 "let g:indent_guides_color_change_percent = 20
 " ガイドの幅
-"let g:indent_guides_guide_size = 1
-" ガイド幅をインデント幅に合わせる
-let g:indent_guides_guide_size = &tabstop
+let g:indent_guides_guide_size = 1
 
+" ガイド幅をインデント幅に合わせる
+"let g:indent_guides_guide_size = &tabstop
 
 " QuickRun
 let g:quickrun_config = {}
@@ -245,3 +258,4 @@ nnoremap <silent> <Leader>sc :<C-u>SyntasticCheck<CR>
 " normal モードのとき、<Leader>st でコーディングルールのチェック/非チェックを
 " 切り替え
 nnoremap <silent> <Leader>st :<C-u>SyntasticToggleMode<CR>
+
