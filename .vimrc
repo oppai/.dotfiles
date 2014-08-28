@@ -90,6 +90,8 @@ set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set smarttab
 
+set wildmenu
+
 "For Perl
 au BufNewFile,BufRead *.pl,*.pm  set nowrap tabstop=4 shiftwidth=4 expandtab
 

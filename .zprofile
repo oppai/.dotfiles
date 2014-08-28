@@ -45,7 +45,7 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]#"
+PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]$"
 RPROMPT="%1(v|%F{white}%1v%f|)"
 
 alias chrome='open -a /Applications/Google\ Chrome.app/'
