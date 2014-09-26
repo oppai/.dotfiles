@@ -9,12 +9,10 @@ call neobundle#rc(expand('~/.bundle'))
 
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'vim-scripts/ShowMarks'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 
 NeoBundle 'vim-scripts/hybrid.vim'
@@ -112,9 +110,13 @@ set wildmenu
 set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
 "For Perl
-au BufNewFile,BufRead *.t,*.pl,*.pm  set nowrap tabstop=4 shiftwidth=4 expandtab
+au BufNewFile,BufRead *.t,*.pl,*.pm,*.tmpl  set nowrap tabstop=4 shiftwidth=4 expandtab
+"For JS
+au BufNewFile,BufRead *.js  set nowrap tabstop=4 shiftwidth=4 expandtab
 
-let g:neocomplcache_enable_at_startup = 1
+"neocomplcache
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_camel_case_completion = 0
 
 "Statusline
 set laststatus=2
@@ -185,6 +187,7 @@ augroup EditPerl
 autocmd!
 autocmd BufWritePost,FileWritePost *.{t,p[lm]} QuickRun mperl
 autocmd BufWritePost,FileWritePost *.tmpl QuickRun mperl
+autocmd BufWritePost,FileWritePost *.js QuickRun mjs
 augroup END
 
 " mixi-prove 使う場合は：
@@ -202,6 +205,10 @@ let g:quickrun_config['_'] = {
       \ }
 let g:quickrun_config.mperl = {
       \  'command' : 'codereview.pl',
+      \  'outputter/buffer/split' : ':botright 8sp',
+      \  }
+let g:quickrun_config.mjs = {
+      \  'command' : 'codereview-js',
       \  'outputter/buffer/split' : ':botright 8sp',
       \  }
 let g:quickrun_config['useless-module'] = {
@@ -260,8 +267,8 @@ nnoremap <silent> <Leader>sc :<C-u>SyntasticCheck<CR>
 nnoremap <silent> <Leader>sr :<C-u>SyntasticReset<CR>
 
 " for snippets
-imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
+"imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <C-k> <Plug>(neocomplcache_snippets_expand)
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory="~/.vim/snippets"
