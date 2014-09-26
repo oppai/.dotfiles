@@ -1,5 +1,10 @@
 # export
 export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
+
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$GOROOT/src:$GOROOT/bin
 
 # alias
 alias ls='ls -F'
@@ -50,6 +55,7 @@ alias gdc="git diff --cached"
 alias ga="git add"
 alias co="git checkout"
 alias gname="git diff --name-only"
+alias ghead="git rev-parse --abbrev-ref HEAD"
 alias tigs="tig status"
 
 alias ts="tig status"
