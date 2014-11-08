@@ -1,5 +1,10 @@
 # export
 export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
+
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$GOROOT/src:$GOROOT/bin
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
@@ -52,6 +57,7 @@ precmd () {
 PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]$"
 RPROMPT="%1(v|%F{white}%1v%f|)"
 
+# alias
 alias chrome='open -a /Applications/Google\ Chrome.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias sc="screen -s bash"
@@ -59,12 +65,16 @@ alias t="tmux"
 alias v="vim"
 alias g="git"
 alias gg="git graph"
+
+alias s="git status --short --branch"
+alias gr="git reset"
 alias gd="git diff"
 alias gdc="git diff --cached"
-alias s="git status --short --branch"
 alias ga="git add"
-alias gr="git reset"
 alias co="git checkout"
+alias gname="git diff --name-only"
+alias ghead="git rev-parse --abbrev-ref HEAD"
+alias tigs="tig status"
 
 # セパレータを設定する
 zstyle ':completion:*' list-separator '-->'
@@ -89,4 +99,25 @@ eval `/usr/bin/ssh-agent`
 
 # git-complete
 fpath=(~/.zsh/completion $fpath)
+
+# tmuxinator
+# source ~/.bin/tmuxinator.zsh
+
+SOCK="/tmp/ssh-agent-$USER-screen"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
+then
+    ln -sf $SSH_AUTH_SOCK $SOCK
+    export SSH_AUTH_SOCK=$SOCK
+fi
+
+fixssh() {
+  for key in SSH_AUTH_SOCK SSH_CONNECTION SSH_CLIENT; do
+    if (tmux show-environment | grep "^${key}" > /dev/null); then
+      value=`tmux show-environment | grep "^${key}" | sed -e "s/^[A-Z_]*=//"`
+      export ${key}="${value}"
+    fi
+  done
+}
+
+fixssh;
 
