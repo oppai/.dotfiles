@@ -19,6 +19,9 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/neosnippet'
 
 NeoBundle 'vim-scripts/hybrid.vim'
 NeoBundle 'Lokaltog/vim-powerline'
@@ -46,6 +49,19 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'mattn/sonictemplate-vim'
 
 NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+NeoBundle 'scratch.vim'
+NeoBundle 'scrooloose/syntastic'
+
+NeoBundle 'kuniwak/vim-prove-syntax'
 
 filetype plugin indent on
 
@@ -75,6 +91,7 @@ set number
 set cursorline
 set nowrap
 
+nnoremap <ESC><ESC> :set hlsearch!<CR>
 set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
 "Color
@@ -98,15 +115,22 @@ set scrolloff=20
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
 set smarttab
+set wildmenu
+
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 
 set wildmenu
 
 "For Perl
-au BufNewFile,BufRead *.pl,*.pm  set nowrap tabstop=4 shiftwidth=4 expandtab
+au BufNewFile,BufRead *.t,*.pl,*.pm,*.tmpl  set nowrap tabstop=4 shiftwidth=4 expandtab
 "For Go
 au BufNewFile,BufRead *.go  set nowrap tabstop=2 shiftwidth=2 noexpandtab
+"For JS
+au BufNewFile,BufRead *.js  set nowrap tabstop=4 shiftwidth=4 expandtab
 
-let g:neocomplcache_enable_at_startup = 1
+"neocomplcache
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_camel_case_completion = 0
 
 "Statusline
 set laststatus=2
@@ -186,6 +210,13 @@ hi IndentGuidesOdd  ctermbg=darkgray
 " ガイドの幅
 let g:indent_guides_guide_size = 1
 
+" for snippets
+"imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <C-k> <Plug>(neocomplcache_snippets_expand)
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory="~/.vim/snippets"
+
 " ガイド幅をインデント幅に合わせる
 "let g:indent_guides_guide_size = &tabstop
 
@@ -211,7 +242,6 @@ augroup END
 
 " normal モードのとき <Leader>r で QuickRun を実行（rspec の場合はテストを実行）
 nnoremap <Leader>r :<C-u>QuickRun<CR>
-
 
 " neorspec 用の設定関数を定義
 function! s:load_neorspec_settings()
