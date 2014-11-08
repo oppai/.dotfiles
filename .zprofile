@@ -1,5 +1,9 @@
 # export
+
+source ~/.zshrc
+
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad

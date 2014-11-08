@@ -2,7 +2,7 @@
 set nocompatible
 filetype off
 if has('vim_starting')
-	set runtimepath+=~/.vim/neobundle.vim.git
+  set runtimepath+=~/.vim/neobundle.vim.git
 endif
 
 " Go lang
@@ -42,9 +42,11 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'alpaca-tc/neorspec.vim', { 'depends' : 'tpope/vim-rails' }
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntfftic'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'mattn/sonictemplate-vim'
+
+NeoBundle 'rhysd/clever-f.vim'
 
 filetype plugin indent on
 
