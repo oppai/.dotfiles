@@ -42,7 +42,6 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'alpaca-tc/neorspec.vim', { 'depends' : 'tpope/vim-rails' }
-NeoBundle 'scrooloose/syntfftic'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'mattn/sonictemplate-vim'
 
