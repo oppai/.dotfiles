@@ -13,7 +13,7 @@ if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
 endif
 
-call neobundle#rc(expand('~/.bundle'))
+call neobundle#begin(expand('~/.bundle'))
 
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'fuenor/qfixgrep'
@@ -51,6 +51,7 @@ filetype plugin indent on
 
 NeoBundleCheck
 
+call neobundle#end()
 
 "Basic key Remap
 noremap j gj
