@@ -8,9 +8,11 @@ export PATH=/usr/local/sbin:$PATH
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
-export GOROOT=`go env GOROOT`
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+if [ `test -x go` ];then
+  export GOROOT=`go env GOROOT`
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
 
 # alias
 alias ls='ls -F'
