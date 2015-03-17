@@ -43,7 +43,7 @@ alias v="vim"
 alias g="git"
 alias gg="git graph"
 alias s="git status --short --branch"
-
+alias ts="tig status"
 
 # git
 autoload -Uz vcs_info

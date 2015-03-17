@@ -28,6 +28,7 @@ NeoBundle 'Shougo/vimproc.vim',{
       \     'cygwin' : 'make -f make_cygwin.mak',
       \     'mac' : 'make -f make_mac.mak',
       \     'unix' : 'make -f make_unix.mak',
+      \     'linux' : 'make',
       \    },
       \ }
 NeoBundle 'thinca/vim-quickrun'
@@ -46,6 +47,10 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'mattn/sonictemplate-vim'
 
 NeoBundle 'rhysd/clever-f.vim'
+
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'basyura/unite-rails'
 
 filetype plugin indent on
 
