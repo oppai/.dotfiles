@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DOT_FILES=( .bash_profile .gitconfig .screenrc .vimrc .gvimrc .emacs .git-completion.bash
-            .tmux.conf .gvimrc .zprofile)
+DOT_FILES=( .bash_profile .gitconfig .screenrc .vimrc .gvimrc .xvimrc .emacs .git-completion.bash
+            .tmux.conf .gvimrc .zprofile .gitignore)
 
 #install neobundle
 if [ ! -d ~/.vim/neobundle.vim.git ]; then
