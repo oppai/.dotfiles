@@ -1,12 +1,6 @@
 # export
-
-source ~/.zshrc
-
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-
-export CLICOLOR=1
-export LSCOLORS=DxGxcxdxCxegedabagacad
 
 if [ `test -x go` ];then
   export GOROOT=`go env GOROOT`
@@ -35,16 +29,6 @@ setopt hist_ignore_space  #スペースで始まるコマンドラインはヒ�
 setopt inc_append_history #すぐにヒストリファイルに追記する
 setopt share_history      #zshプロセス間でヒストリを共有する
 
-alias chrome='open -a /Applications/Google\ Chrome.app/'
-alias gvim='open -a /Applications/MacVim.app/'
-alias sc="screen -s bash"
-alias t="tmux"
-alias v="vim"
-alias g="git"
-alias gg="git graph"
-alias s="git status --short --branch"
-alias ts="tig status"
-
 # git
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '[%b]'
@@ -71,6 +55,11 @@ alias s="git status --short --branch"
 alias ga="git add"
 alias gr="git reset"
 alias co="git checkout"
+alias gname="git diff --name-only"
+alias ghead="git rev-parse --abbrev-ref HEAD"
+alias tigs="tig status"
+alias ts="tig status"
+
 
 # セパレータを設定する
 zstyle ':completion:*' list-separator '-->'
@@ -91,8 +80,25 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # ssh-agent
-eval `/usr/bin/ssh-agent`
+SOCK="/tmp/ssh-agent-$USER-screen"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
+then
+    ln -sf $SSH_AUTH_SOCK $SOCK
+    export SSH_AUTH_SOCK=$SOCK
+fi
+
+fixssh() {
+  for key in SSH_AUTH_SOCK SSH_CONNECTION SSH_CLIENT; do
+    if (tmux show-environment | grep "^${key}" > /dev/null); then
+      value=`tmux show-environment | grep "^${key}" | sed -e "s/^[A-Z_]*=//"`
+      export ${key}="${value}"
+    fi
+  done
+}
+
+fixssh;
 
 # git-complete
 fpath=(~/.zsh/completion $fpath)
+
 
