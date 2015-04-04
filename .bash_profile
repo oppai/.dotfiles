@@ -30,7 +30,7 @@ C_BG_LIGHTGRAY="\[\033[47m\]"
 
 # Prompt
 kodam="kodam"
-export PS1="$C_LIGHTGREEN\h$C_DARKGRAY:$C_LIGHTYELLOW\W $C_RED$kodam$C_DEFAULT\$"
+export PS1="$C_LIGHTGREEN\h$C_DARKGRAY:$C_LIGHTYELLOW\W $C_LIGHTPURPLE\u$C_DEFAULT\$"
 
 if [ -d /Applications/Sublime\ Text.app/ ]; then
   alias sublime='open -a "/Applications/Sublime Text.app/"';

@@ -1,15 +1,12 @@
 # export
-
-source ~/.zshrc
-
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
-export PATH=$PATH:/usr/local/go/bin
-
-export GOROOT=$HOME/go
-export GOPATH=$GOROOT/src:$GOROOT/bin
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+if [ `test -x go` ];then
+  export GOROOT=`go env GOROOT`
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
@@ -66,6 +63,8 @@ alias co="git checkout"
 alias gname="git diff --name-only"
 alias ghead="git rev-parse --abbrev-ref HEAD"
 alias tigs="tig status"
+alias ts="tig status"
+
 
 # セパレータを設定する
 zstyle ':completion:*' list-separator '-->'
@@ -86,11 +85,25 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # ssh-agent
-eval `/usr/bin/ssh-agent`
+SOCK="/tmp/ssh-agent-$USER-screen"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
+then
+    ln -sf $SSH_AUTH_SOCK $SOCK
+    export SSH_AUTH_SOCK=$SOCK
+fi
+
+fixssh() {
+  for key in SSH_AUTH_SOCK SSH_CONNECTION SSH_CLIENT; do
+    if (tmux show-environment | grep "^${key}" > /dev/null); then
+      value=`tmux show-environment | grep "^${key}" | sed -e "s/^[A-Z_]*=//"`
+      export ${key}="${value}"
+    fi
+  done
+}
+
+eval `ssh-agent`
+fixssh;
 
 # git-complete
 fpath=(~/.zsh/completion $fpath)
-
-# tmuxinator
-# source ~/.bin/tmuxinator.zsh
 

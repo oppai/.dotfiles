@@ -13,7 +13,7 @@ if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
 endif
 
-call neobundle#rc(expand('~/.bundle'))
+call neobundle#begin(expand('~/.bundle'))
 
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'fuenor/qfixgrep'
@@ -23,14 +23,18 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/neosnippet'
 
+NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'Lokaltog/powerline-fontpatcher'
+
 NeoBundle 'vim-scripts/hybrid.vim'
-NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc.vim',{
       \ 'build' : {
       \     'cygwin' : 'make -f make_cygwin.mak',
       \     'mac' : 'make -f make_mac.mak',
       \     'unix' : 'make -f make_unix.mak',
+      \     'linux' : 'make',
       \    },
       \ }
 NeoBundle 'thinca/vim-quickrun'
@@ -63,10 +67,15 @@ NeoBundle 'scrooloose/syntastic'
 
 NeoBundle 'kuniwak/vim-prove-syntax'
 
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'basyura/unite-rails'
+
 filetype plugin indent on
 
 NeoBundleCheck
 
+call neobundle#end()
 
 "Basic key Remap
 noremap j gj
