@@ -96,6 +96,7 @@ fixssh() {
   done
 }
 
+eval `ssh-agent`
 fixssh;
 
 # git-complete
