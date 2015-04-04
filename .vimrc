@@ -22,11 +22,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/neosnippet'
-
-NeoBundle 'alpaca-tc/alpaca_powertabline'
-NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-NeoBundle 'Lokaltog/powerline-fontpatcher'
-
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'vim-scripts/hybrid.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc.vim',{
