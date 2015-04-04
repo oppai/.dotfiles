@@ -20,8 +20,11 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/neocomplcache'
 
+NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'Lokaltog/powerline-fontpatcher'
+
 NeoBundle 'vim-scripts/hybrid.vim'
-NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc.vim',{
       \ 'build' : {
