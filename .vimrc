@@ -66,6 +66,7 @@ NeoBundle 'kuniwak/vim-prove-syntax'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'basyura/unite-rails'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 filetype plugin indent on
 

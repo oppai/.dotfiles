@@ -8,9 +8,6 @@ if [ `test -x go` ];then
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
-export CLICOLOR=1
-export LSCOLORS=DxGxcxdxCxegedabagacad
-
 # alias
 alias ls='ls -F'
 alias ll='ls -al'
