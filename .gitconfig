@@ -1,8 +1,8 @@
 [user]
-  name = hiroaki.murayama
-  email = hiroaki.murayama@mixi.co.jp
+  name = oppai
+  email = hotsoup.h@gmail.com
 [core]
-	excludesfile = /home/hiroaki.murayama/.gitignore
+	excludesfile = $HOME/.gitignore
   editor = /usr/bin/vim
 [color]
   ui = true
@@ -30,6 +30,4 @@
   a = add
   authors = shortlog -sn
   s = status --short --branch
-[hub]
-	host = github.lo.mixi.jp
-	host = github.lo.mixi.jp
+
