@@ -59,6 +59,7 @@ alias ga="git add"
 alias co="git checkout"
 alias gname="git diff --name-only"
 alias ghead="git rev-parse --abbrev-ref HEAD"
+alias -g C='`git rev-parse --abbrev-ref HEAD`'
 alias tigs="tig status"
 alias ts="tig status"
 
