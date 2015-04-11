@@ -40,7 +40,7 @@ precmd () {
 }
 
 PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]$"
-RPROMPT="%1(v|%F{white}%1v%f|)"
+RPROMPT="%1(v|%F{white}%1v%f|) %F{magenta}%m"
 
 # alias
 alias chrome='open -a /Applications/Google\ Chrome.app/'
