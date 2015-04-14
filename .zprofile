@@ -98,10 +98,7 @@ fixssh() {
     fi
   done
 }
-
-eval `ssh-agent`
 fixssh;
-
 # git-complete
 fpath=(~/.zsh/completion $fpath)
 
