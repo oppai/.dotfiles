@@ -98,6 +98,7 @@ set autoindent
 set number
 set cursorline
 set nowrap
+set nocompatible
 
 nnoremap <ESC><ESC> :set hlsearch!<CR>
 set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1

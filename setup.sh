@@ -20,5 +20,8 @@ do
     ln -s $HOME/.dotfiles/$file $HOME/$file;
 done
 
+#install tmux plugin
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 echo "Complete setup.sh"
 
