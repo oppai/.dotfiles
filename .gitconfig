@@ -30,4 +30,7 @@
   a = add
   authors = shortlog -sn
   s = status --short --branch
-
+[pager]
+  log  = diff-highlight | less
+  diff = diff-highlight | less
+  show = diff-highlight | less

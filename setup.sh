@@ -20,5 +20,16 @@ do
     ln -s $HOME/.dotfiles/$file $HOME/$file;
 done
 
+#install tmux plugin
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+#Install diff-highlight
+if [ ! -x "`which diff-highlight`" ]; then
+  curl -s https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > diff-highlight
+  chmod +x ./diff-highlight
+  echo "Install diff-highlight in /usr/local/bin/ ?"
+  sudo mv ./diff-highlight /usr/local/bin/
+fi
+
 echo "Complete setup.sh"
 
