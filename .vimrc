@@ -68,6 +68,8 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'Shougo/neosnippet-snippets'
 
+NeoBundle 'fatih/vim-go'
+
 filetype plugin indent on
 
 NeoBundleCheck
@@ -96,6 +98,7 @@ set autoindent
 set number
 set cursorline
 set nowrap
+set nocompatible
 
 nnoremap <ESC><ESC> :set hlsearch!<CR>
 set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
@@ -129,14 +132,12 @@ set wildmenu
 
 "For Perl
 au BufNewFile,BufRead *.t,*.pl,*.pm,*.tmpl  set nowrap tabstop=4 shiftwidth=4 expandtab
-"For Go
-au BufNewFile,BufRead *.go  set nowrap tabstop=2 shiftwidth=2 noexpandtab
 "For JS
 au BufNewFile,BufRead *.js  set nowrap tabstop=4 shiftwidth=4 expandtab
 
 "neocomplcache
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_enable_camel_case_completion = 0
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 0
 
 "Statusline
 set laststatus=2
@@ -296,3 +297,15 @@ nnoremap <silent> <Leader>sc :<C-u>SyntasticCheck<CR>
 " 切り替え
 nnoremap <silent> <Leader>st :<C-u>SyntasticToggleMode<CR>
 
+" for go lang
+au BufNewFile,BufRead *.go  set nowrap tabstop=2 shiftwidth=2 expandtab
+filetype off
+filetype plugin indent off
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on

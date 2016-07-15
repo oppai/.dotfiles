@@ -2,8 +2,8 @@
   name = oppai
   email = hotsoup.h@gmail.com
 [core]
-	excludesfile = $HOME/.gitignore
-  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore
+  editor = vim
 [color]
   ui = true
 [difftool "sourcetree"]
