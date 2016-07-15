@@ -42,6 +42,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 
 NeoBundle 'tomasr/molokai'
+NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'alpaca-tc/neorspec.vim', { 'depends' : 'tpope/vim-rails' }
@@ -147,7 +148,8 @@ set statusline+=[%{Getff()}]
 set statusline+=%m%r\ %F%=[%l/%L]
 
 "Color scheme
-colorscheme molokai
+let g:lucius_style='dark'
+colorscheme lucius
 
 function! Getff()
   if &ff == 'unix'

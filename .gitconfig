@@ -20,16 +20,14 @@
   tool = Kaleidoscope
 [alias]
   graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %C(bold blue)%cn %Cred%d %Creset%s'
-  l = log --graph
-  st = status
   co = checkout
   cm = commit
   br = branch
-  df = diff --word-diff
   d = diff
   a = add
   authors = shortlog -sn
   s = status --short --branch
+  find = !git branch -a | peco | cut -d/ -f3 | xargs git checkout
 [pager]
   log  = diff-highlight | less
   diff = diff-highlight | less
