@@ -40,7 +40,7 @@ precmd () {
 }
 
 PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]$"
-RPROMPT="%1(v|%F{white}%1v%f|) %F{magenta}%m"
+RPROMPT="%1(v|%F{gray}%1v%f|) %F{magenta}%m"
 
 # alias
 alias chrome='open -a /Applications/Google\ Chrome.app/'
@@ -101,4 +101,6 @@ fixssh() {
 
 # git-complete
 fpath=(~/.zsh/completion $fpath)
+
+###### END FOR COMMON SETTING
 
