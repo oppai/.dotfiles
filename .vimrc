@@ -71,6 +71,8 @@ NeoBundle 'Shougo/neosnippet-snippets'
 
 NeoBundle 'fatih/vim-go'
 
+NeoBundle 'elixir-lang/vim-elixir'
+
 filetype plugin indent on
 
 NeoBundleCheck
@@ -86,7 +88,7 @@ noremap <Down> gj
 noremap <Up> gk
 vnoremap > >gv
 vnoremap < <gv
-
+vnoremap <silent> <C-p> "0p<CR>
 
 "Edit vimrc
 let mapleader = ','
@@ -247,6 +249,7 @@ let g:quickrun_config['ruby.rspec'] = {
 augroup my_rspec
   autocmd!
   autocmd BufEnter *_spec.rb set filetype=ruby.rspec
+  autocmd BufEnter *.exs set filetype=elixir
 augroup END
 
 " normal モードのとき <Leader>r で QuickRun を実行（rspec の場合はテストを実行）

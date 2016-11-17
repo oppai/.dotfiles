@@ -45,7 +45,7 @@ caption always '%?%F%{= bw}%:%{= wk}%?%2n%f%07=%t%='
 sorendition '+r .b'
 
 # Prefixキーの設定
-escape ^Tt
+# escape ^Tt
 
 #ウィンドウ操作モード(^t w でウィンドウを連続的に操作できるようになる)
 bind w eval 'echo "Operate window"' 'command -c operate'
