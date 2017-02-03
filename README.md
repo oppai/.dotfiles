@@ -4,6 +4,6 @@
 this is my dotfiles
 
 ##Install
-+ clone this folder
-+ link dotfile to ~/
-+ and delete me.
+```
+$ curl -s https://raw.githubusercontent.com/oppai/.dotfiles/master/install.sh | sh
+```
