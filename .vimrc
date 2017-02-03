@@ -15,16 +15,23 @@ endif
 
 call neobundle#begin(expand('~/.bundle'))
 
-NeoBundle 'mattn/calendar-vim'
-NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'tpope/vim-markdown'
+
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'vim-scripts/hybrid.vim'
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'kuniwak/vim-prove-syntax'
+NeoBundle 'mattn/calendar-vim'
+NeoBundle 'mattn/sonictemplate-vim'
+NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'scratch.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/vimproc.vim',{
       \ 'build' : {
       \     'cygwin' : 'make -f make_cygwin.mak',
@@ -33,45 +40,23 @@ NeoBundle 'Shougo/vimproc.vim',{
       \     'linux' : 'make',
       \    },
       \ }
-NeoBundle 'thinca/vim-quickrun'
 
-NeoBundle 'scratch.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-
+"style
 NeoBundle 'tomasr/molokai'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'evidens/vim-twig'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'alpaca-tc/neorspec.vim', { 'depends' : 'tpope/vim-rails' }
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'mattn/sonictemplate-vim'
+NeoBundle 'vim-scripts/hybrid.vim'
 
-NeoBundle 'rhysd/clever-f.vim'
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-
-NeoBundle 'scratch.vim'
-NeoBundle 'scrooloose/syntastic'
-
-NeoBundle 'kuniwak/vim-prove-syntax'
-
+"syntax hightlight
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'alpaca-tc/neorspec.vim', { 'depends' : 'tpope/vim-rails' }
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'Shougo/neosnippet-snippets'
-
-NeoBundle 'fatih/vim-go'
-
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'elixir-lang/vim-elixir'
+NeoBundle 'evidens/vim-twig'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'lambdatoast/elm.vim'
 
 filetype plugin indent on
 
