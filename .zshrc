@@ -103,5 +103,7 @@ fixssh() {
 # git-complete
 fpath=(~/.zsh/completion $fpath)
 
+npmbin(){[ $# -ne 0 ] && $(npm bin)/$*}
+
 ###### END FOR COMMON SETTING
 
