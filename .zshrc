@@ -39,29 +39,30 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-PROMPT="[%F{yellow}%~|%F{green}%B%n%b%f]$"
-RPROMPT="%1(v|%F{gray}%1v%f|) %F{magenta}%m"
+function get_face_status {
+  if [[ "$?" == "0" ]]; then
+    echo '(๑´ڡ`๑)'
+    return;
+  fi
+  echo '%F{red}(｀；__；´)%f'
+}
+
+PROMPT='[%F{yellow}%~|%F{green}%B%n%b%f]$'
+RPROMPT='$(get_face_status) %1(v|%F{gray}%1v%f|) %F{magenta}%m'
+
+setopt prompt_subst
+
 
 # alias
 alias chrome='open -a /Applications/Google\ Chrome.app/'
 alias gvim='open -a /Applications/MacVim.app/'
-alias sc="screen -s bash"
 alias t="tmux"
 alias v="vim"
-alias g="git"
 alias gg="git graph"
 
-alias s="git status --short --branch"
-alias gr="git reset"
-alias gd="git diff"
-alias gdc="git diff --cached"
-alias ga="git add"
-alias co="git checkout"
-alias gname="git diff --name-only"
-alias ghead="git rev-parse --abbrev-ref HEAD"
+alias git-diff-name="git diff --name-only"
 alias -g C='`git rev-parse --abbrev-ref HEAD`'
 alias tigs="tig status"
-alias ts="tig status"
 
 
 # セパレータを設定する
