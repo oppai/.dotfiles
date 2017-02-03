@@ -122,6 +122,8 @@ set wildmenu
 au BufNewFile,BufRead *.t,*.pl,*.pm,*.tmpl  set nowrap tabstop=4 shiftwidth=4 expandtab
 "For JS
 au BufNewFile,BufRead *.js  set nowrap tabstop=4 shiftwidth=4 expandtab
+"For elm
+au BufNewFile,BufRead *.elm set nowrap tabstop=4 shiftwidth=4 expandtab
 
 "neocomplcache
 let g:neocomplcache_enable_at_startup = 1
@@ -299,3 +301,6 @@ let g:go_highlight_build_constraints = 1
 set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
+
+" for elm lang
+let g:elm_format_autosave = 1
