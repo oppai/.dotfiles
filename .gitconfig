@@ -6,6 +6,8 @@
   editor = vim
 [color]
   ui = true
+[mergetool]
+  cmd = vimdiff
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
@@ -32,3 +34,5 @@
   log  = diff-highlight | less
   diff = diff-highlight | less
   show = diff-highlight | less
+[merge]
+	tool = vimdiff

@@ -44,10 +44,10 @@ function get_face_status {
     echo '(๑´ڡ`๑)'
     return;
   fi
-  echo '%F{red}(｀；__；´)%f'
+  echo '%F{red}(༎ຶ⌑༎ຶ)%f'
 }
 
-PROMPT='[%F{yellow}%~|%F{green}%B%n%b%f]$'
+PROMPT='[%F{yellow}%~|%F{green}%B%n%b%f]$ '
 RPROMPT='$(get_face_status) %1(v|%F{gray}%1v%f|) %F{magenta}%m'
 
 setopt prompt_subst
