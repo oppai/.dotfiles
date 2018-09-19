@@ -55,6 +55,7 @@ setopt prompt_subst
 
 # alias
 alias chrome='open -a /Applications/Google\ Chrome.app/'
+alias code='open -a /Applications/Visual\ Studio\ Code.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias t="tmux"
 alias v="vim"
@@ -104,6 +105,9 @@ fixssh() {
 fpath=(~/.zsh/completion $fpath)
 
 npmbin(){[ $# -ne 0 ] && $(npm bin)/$*}
+
+# For Elixir/Erlang
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 ###### END FOR COMMON SETTING
 
