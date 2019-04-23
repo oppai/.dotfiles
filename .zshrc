@@ -106,6 +106,9 @@ fpath=(~/.zsh/completion $fpath)
 
 npmbin(){[ $# -ne 0 ] && $(npm bin)/$*}
 
+# k8s config
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
 # For Elixir/Erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
 
