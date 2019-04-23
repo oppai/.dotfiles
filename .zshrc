@@ -13,12 +13,6 @@ alias ls='ls -F'
 alias ll='ls -al'
 alias la='ls -a'
 alias lla='ls -la'
-alias -g C='| pbcopy '
-alias java='java -Dfile.encoding=UTF-8'
-
-# autoload
-autoload -U compinit
-compinit
 
 # history
 HISTFILE=$HOME/.zsh-history
@@ -39,16 +33,20 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
+function kube_ctx  {
+  kubectl config current-context
+}
+
 function get_face_status {
   if [[ "$?" == "0" ]]; then
     echo '(๑´ڡ`๑)'
     return;
   fi
-  echo '%F{red}(༎ຶ⌑༎ຶ)%f'
+  echo '%F{red}(* ~ *)%f'
 }
 
 PROMPT='[%F{yellow}%~|%F{green}%B%n%b%f]$ '
-RPROMPT='$(get_face_status) %1(v|%F{gray}%1v%f|) %F{magenta}%m'
+RPROMPT='$(get_face_status) %F{cyan}$(kube_ctx) %1(v|%F{gray}%1v%f|) %F{magenta}%m'
 
 setopt prompt_subst
 
@@ -59,7 +57,9 @@ alias code='open -a /Applications/Visual\ Studio\ Code.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias t="tmux"
 alias v="vim"
+alias g="git"
 alias gg="git graph"
+alias vi=vim
 
 alias git-diff-name="git diff --name-only"
 alias -g C='`git rev-parse --abbrev-ref HEAD`'
