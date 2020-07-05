@@ -34,7 +34,7 @@ precmd () {
 }
 
 function kube_ctx  {
-  kubectl config current-context
+  # kubectl config current-context
 }
 
 function get_face_status {
@@ -46,7 +46,7 @@ function get_face_status {
 }
 
 PROMPT='[%F{yellow}%~|%F{green}%B%n%b%f]$ '
-RPROMPT='$(get_face_status) %F{cyan}$(kube_ctx) %1(v|%F{gray}%1v%f|) %F{magenta}%m'
+RPROMPT='$(get_face_status) %F{cyan} %1(v|%F{gray}%1v%f|) %F{magenta}%m'
 
 setopt prompt_subst
 
@@ -106,8 +106,17 @@ fpath=(~/.zsh/completion $fpath)
 
 npmbin(){[ $# -ne 0 ] && $(npm bin)/$*}
 
+git() {
+  local cmd=$1
+  if [[ $cmd == "checkout" ]]; then
+    echo "Use git switch/restore"
+    return
+  fi
+  /usr/bin/git $@
+}
+
 # k8s config
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+# if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
 # For Elixir/Erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
