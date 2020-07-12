@@ -1,5 +1,5 @@
 #!/bin/bash
-
+IS_MACOS=$(if type "sw_vers" > /dev/null 2>&1; then echo "true";fi)
 DOT_FILES=( .bashrc .gitconfig .screenrc .vimrc .gvimrc .xvimrc .emacs .git-completion.bash
             .tmux.conf .gvimrc .zshrc .gitignore)
 
@@ -23,13 +23,17 @@ done
 #install tmux plugin
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-#Install diff-highlight
-if [ ! -x "`which diff-highlight`" ]; then
-  curl -s https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > diff-highlight
-  chmod +x ./diff-highlight
-  echo "Install diff-highlight in /usr/local/bin/ ?"
-  sudo mv ./diff-highlight /usr/local/bin/
+#Install Mac brew
+if ! type "brew" > /dev/null 2>&1 ; then
+  if [ "$IS_MACOS" -eq "true" ]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  fi
 fi
 
+#Install diff-highlight
+if ! type "diff-highlight" > /dev/null 2>&1 ; then
+  brew install git
+  ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+fi
 echo "Complete setup.sh"
 
