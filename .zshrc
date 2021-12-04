@@ -2,12 +2,6 @@
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
-if [ `test -x go` ];then
-  export GOROOT=`go env GOROOT`
-  export GOPATH=$HOME/go
-  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-fi
-
 # alias
 alias ls='ls -F'
 alias ll='ls -al'
@@ -53,7 +47,6 @@ setopt prompt_subst
 
 # alias
 alias chrome='open -a /Applications/Google\ Chrome.app/'
-alias code='open -a /Applications/Visual\ Studio\ Code.app/'
 alias gvim='open -a /Applications/MacVim.app/'
 alias t="tmux"
 alias v="vim"

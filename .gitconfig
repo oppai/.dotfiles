@@ -36,3 +36,9 @@
   show = diff-highlight | less
 [merge]
 	tool = vimdiff
+[includeIf "gitdir:~/manbo/"]
+    path = ~/kodam/.gitconfig
+[init]
+	defaultBranch = main
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
