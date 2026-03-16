@@ -16,7 +16,7 @@ endif
 call neobundle#begin(expand('~/.bundle'))
 
 
-NeoBundle 'Shougo/neocomplcache'
+"NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
@@ -74,6 +74,13 @@ noremap <Up> gk
 vnoremap > >gv
 vnoremap < <gv
 vnoremap <silent> <C-p> "0p<CR>
+
+" no yunk
+nnoremap d "_d
+xnoremap d "_d
+xnoremap p "_dP
+
+
 
 "Edit vimrc
 let mapleader = ','

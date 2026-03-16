@@ -5,8 +5,6 @@ export PATH=/usr/local/sbin:$PATH
 # alias
 alias ls='ls -F'
 alias ll='ls -al'
-alias la='ls -a'
-alias lla='ls -la'
 
 # history
 HISTFILE=$HOME/.zsh-history
@@ -32,7 +30,8 @@ function kube_ctx  {
 }
 
 function get_face_status {
-  if [[ "$?" == "0" ]]; then
+  local exit_code=$?
+  if [[ "$exit_code" == "0" ]]; then
     echo '(๑´ڡ`๑)'
     return;
   fi
@@ -40,7 +39,7 @@ function get_face_status {
 }
 
 PROMPT='[%F{yellow}%~|%F{green}%B%n%b%f]$ '
-RPROMPT='$(get_face_status) %F{cyan} %1(v|%F{gray}%1v%f|) %F{magenta}%m'
+RPROMPT='$(get_face_status) %F{cyan} %1(v|%F{gray}%1v%f|)'
 
 setopt prompt_subst
 
@@ -58,6 +57,11 @@ alias git-diff-name="git diff --name-only"
 alias -g C='`git rev-parse --abbrev-ref HEAD`'
 alias tigs="tig status"
 
+alias k=kubectl
+alias kg="k get"
+alias kp="k get pod"
+alias kl="k logs"
+alias tf=terraform
 
 # セパレータを設定する
 zstyle ':completion:*' list-separator '-->'
@@ -66,16 +70,23 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # Color
 export CLICOLOR=1
-export LSCOLORS=DxGxcxdxCxegedabagacada
+export LSCOLORS=DxGxcxdxCxegedabagacad
 
 # ファイル補完に色を付ける
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}¬
+
+# git-complete (must be before compinit for completion to work)
+fpath=(~/.zsh/completion $fpath)
 
 # http://qiita.com/items/13d150c590508d518d26
 autoload -U compinit
 compinit
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# Google Cloud SDK (load right after compinit to avoid double compinit)
+if [ -f "$HOME/bin/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/bin/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/completion.zsh.inc"; fi
 
 # ssh-agent
 SOCK="/tmp/ssh-agent-$USER-screen"
@@ -94,22 +105,38 @@ fixssh() {
   done
 }
 
-# git-complete
-fpath=(~/.zsh/completion $fpath)
-
 npmbin(){[ $# -ne 0 ] && $(npm bin)/$*}
 
 git() {
   local cmd=$1
   if [[ $cmd == "checkout" ]]; then
     echo "Use git switch/restore"
-    return
+    return 1
+  elif [[ $cmd == "push" ]]; then
+    # for force-push
+    if [[ $4 == "master" || $4 == "main" || $4 == "develop" ]]; then
+      echo "Don't force push to master/main/develop"
+      return 1
+    # for no-option
+    elif [[ $3 == "master" || $3 == "main" || $3 == "develop" ]]; then
+      echo "Don't push to master/main/develop"
+      return 1
+    fi
   fi
   /usr/bin/git $@
 }
+alias git-force=/opt/homebrew/bin/git
 
-# k8s config
-# if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+kube_set_namespace() {
+  kubectl config set-context $(kubectl config current-context) --namespace=${1}
+}
+
+pt() {
+  /usr/local/bin/pt --hidden $@
+}
+
+# k8s config (use cached completion to avoid slow startup)
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # For Elixir/Erlang
 export ERL_AFLAGS="-kernel shell_history enabled"

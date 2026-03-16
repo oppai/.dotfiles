@@ -66,3 +66,6 @@ export PATH=$PATH:/usr/local/go/bin
 source $HOME/.git-completion.bash
 
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"
