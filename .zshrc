@@ -109,10 +109,7 @@ npmbin(){[ $# -ne 0 ] && $(npm bin)/$*}
 
 git() {
   local cmd=$1
-  if [[ $cmd == "checkout" ]]; then
-    echo "Use git switch/restore"
-    return 1
-  elif [[ $cmd == "push" ]]; then
+  if [[ $cmd == "push" ]]; then
     # for force-push
     if [[ $4 == "master" || $4 == "main" || $4 == "develop" ]]; then
       echo "Don't force push to master/main/develop"
